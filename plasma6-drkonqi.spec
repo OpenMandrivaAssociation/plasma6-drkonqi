@@ -35,6 +35,8 @@ BuildRequires: cmake(KF6IdleTime)
 BuildRequires: cmake(KF6WindowSystem)
 BuildRequires: cmake(KF6SyntaxHighlighting)
 BuildRequires: cmake(KUserFeedbackQt6)
+BuildRequires: pkgconfig(libsystemd)
+BuildRequires: systemd
 
 %description
 Crash handler for KDE software
