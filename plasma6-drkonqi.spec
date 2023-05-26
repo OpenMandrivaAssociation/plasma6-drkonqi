@@ -1,6 +1,6 @@
 %define git 20230518
 
-Name: kf6-drkonqi
+Name: plasma6-drkonqi
 Version: 5.240.0
 Release: %{?git:0.%{git}.}1
 Source0: https://invent.kde.org/plasma/drkonqi/-/archive/master/drkonqi-master.tar.bz2#/drkonqi-%{git}.tar.bz2
