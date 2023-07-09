@@ -37,6 +37,8 @@ BuildRequires: cmake(KF6SyntaxHighlighting)
 BuildRequires: cmake(KUserFeedbackQt6)
 BuildRequires: pkgconfig(libsystemd)
 BuildRequires: systemd
+# Avoid pulling in Plasma5
+BuildRequires: plasma6-xdg-desktop-portal-kde
 
 %description
 Crash handler for KDE software
