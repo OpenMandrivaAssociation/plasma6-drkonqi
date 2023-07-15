@@ -1,4 +1,4 @@
-%define git 20230707
+%define git 20230715
 
 Name: plasma6-drkonqi
 Version: 5.240.0
@@ -75,3 +75,10 @@ Crash handler for KDE software
 %{_datadir}/applications/org.kde.drkonqi.coredump.gui.desktop
 %{_datadir}/applications/org.kde.drkonqi.desktop
 %{_datadir}/drkonqi
+%{_bindir}/drkonqi-sentry-data
+%{_prefix}/lib/systemd/user/default.target.wants/drkonqi-sentry-postman.path
+%{_prefix}/lib/systemd/user/drkonqi-sentry-postman.path
+%{_prefix}/lib/systemd/user/drkonqi-sentry-postman.service
+%{_prefix}/lib/systemd/user/drkonqi-sentry-postman.timer
+%{_prefix}/lib/systemd/user/timers.target.wants/drkonqi-sentry-postman.timer
+%{_libdir}/libexec/drkonqi-sentry-postman
