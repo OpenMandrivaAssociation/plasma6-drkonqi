@@ -1,4 +1,4 @@
-%define git 20230819
+%define git 20230825
 
 Name: plasma6-drkonqi
 Version: 5.240.0
@@ -87,3 +87,7 @@ Crash handler for KDE software
 %{_prefix}/lib/systemd/user/sockets.target.wants/drkonqi-coredump-launcher.socket
 %{_prefix}/lib/systemd/user/timers.target.wants/drkonqi-coredump-cleanup.timer
 %{_libdir}/libexec/drkonqi-sentry-postman
+%{_prefix}/lib/systemd/user/drkonqi-coredump-pickup.service
+%{_prefix}/lib/systemd/user/plasma-core.target.wants/drkonqi-coredump-pickup.service
+%{_prefix}/lib/systemd/user/plasma-core.target.wants/drkonqi-sentry-postman.path
+%{_prefix}/lib/systemd/user/plasma-core.target.wants/drkonqi-sentry-postman.timer
