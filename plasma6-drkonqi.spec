@@ -37,6 +37,7 @@ BuildRequires: cmake(KF6WindowSystem)
 BuildRequires: cmake(KF6SyntaxHighlighting)
 BuildRequires: cmake(KUserFeedbackQt6)
 BuildRequires: pkgconfig(libsystemd)
+BuildRequires: python%{pyver}dist(chai)
 BuildRequires: systemd
 # Avoid pulling in Plasma5
 BuildRequires: plasma6-xdg-desktop-portal-kde
