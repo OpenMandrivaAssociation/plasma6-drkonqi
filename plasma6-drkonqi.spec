@@ -2,7 +2,7 @@
 
 Name: plasma6-drkonqi
 Version: 5.240.0
-Release: %{?git:0.%{git}.}1
+Release: %{?git:0.%{git}.}2
 Source0: https://invent.kde.org/plasma/drkonqi/-/archive/master/drkonqi-master.tar.bz2#/drkonqi-%{git}.tar.bz2
 Summary: Crash handler for KDE software
 URL: https://invent.kde.org/plasma/drkonqi
@@ -38,9 +38,15 @@ BuildRequires: cmake(KF6SyntaxHighlighting)
 BuildRequires: cmake(KUserFeedbackQt6)
 BuildRequires: pkgconfig(libsystemd)
 BuildRequires: python%{pyver}dist(chai)
+BuildRequires: python%{pyver}dist(psutil)
+BuildRequires: python%{pyver}dist(pygdbmi)
+BuildRequires: python%{pyver}dist(sentry-sdk)
 BuildRequires: systemd
 # Avoid pulling in Plasma5
 BuildRequires: plasma6-xdg-desktop-portal-kde
+Requires: python%{pyver}dist(psutil)
+Requires: python%{pyver}dist(pygdbmi)
+Requires: python%{pyver}dist(sentry-sdk)
 
 %description
 Crash handler for KDE software
