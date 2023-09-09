@@ -1,8 +1,8 @@
-%define git 20230901
+%define git 20230909
 
 Name: plasma6-drkonqi
 Version: 5.240.0
-Release: %{?git:0.%{git}.}3
+Release: %{?git:0.%{git}.}1
 Source0: https://invent.kde.org/plasma/drkonqi/-/archive/master/drkonqi-master.tar.bz2#/drkonqi-%{git}.tar.bz2
 Summary: Crash handler for KDE software
 URL: https://invent.kde.org/plasma/drkonqi
