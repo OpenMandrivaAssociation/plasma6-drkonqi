@@ -1,4 +1,4 @@
-%define git 20230927
+%define git 20231005
 
 Name: plasma6-drkonqi
 Version: 5.240.0
