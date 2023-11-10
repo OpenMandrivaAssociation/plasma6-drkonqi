@@ -1,9 +1,14 @@
-%define git 20231103
+%define stable %([ "$(echo %{version} |cut -d. -f2)" -ge 80 -o "$(echo %{version} |cut -d. -f3)" -ge 80 ] && echo -n un; echo -n stable)
+#define git 20231103
 
 Name: plasma6-drkonqi
-Version: 5.240.0
+Version: 5.27.80
 Release: %{?git:0.%{git}.}1
+%if 0%{?git:1}
 Source0: https://invent.kde.org/plasma/drkonqi/-/archive/master/drkonqi-master.tar.bz2#/drkonqi-%{git}.tar.bz2
+%else
+Source0: http://download.kde.org/%{stable}/plasma/%{version}/drkonqi-%{version}.tar.xz
+%endif
 Summary: Crash handler for KDE software
 URL: https://invent.kde.org/plasma/drkonqi
 License: CC0-1.0 LGPL-2.0+ LGPL-2.1 LGPL-3.0
