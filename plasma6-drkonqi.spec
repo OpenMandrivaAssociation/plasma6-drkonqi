@@ -48,8 +48,6 @@ BuildRequires: python%{pyver}dist(pygdbmi)
 BuildRequires: python%{pyver}dist(sentry-sdk)
 BuildRequires: systemd-coredump
 BuildRequires: systemd
-# Avoid pulling in Plasma5
-BuildRequires: plasma6-xdg-desktop-portal-kde
 Requires: python%{pyver}dist(psutil)
 Requires: python%{pyver}dist(pygdbmi)
 Requires: python%{pyver}dist(sentry-sdk)
