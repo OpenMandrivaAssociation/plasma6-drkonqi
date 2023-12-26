@@ -27,6 +27,7 @@ BuildRequires: cmake(Qt6Quick)
 BuildRequires: cmake(Qt6QuickTest)
 BuildRequires: cmake(Qt6DBusTools)
 BuildRequires: cmake(Qt6Concurrent)
+BuildRequires: cmake(PolkitQt6-1)
 BuildRequires: gettext
 BuildRequires: doxygen
 BuildRequires: cmake(Qt6ToolsTools)
