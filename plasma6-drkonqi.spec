@@ -1,11 +1,13 @@
 %define stable %([ "$(echo %{version} |cut -d. -f2)" -ge 80 -o "$(echo %{version} |cut -d. -f3)" -ge 80 ] && echo -n un; echo -n stable)
 %define git 20240217
+%define gitbranch Plasma/6.0
+%define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 
 Name: plasma6-drkonqi
 Version: 5.94.0
 Release: %{?git:0.%{git}.}1
 %if 0%{?git:1}
-Source0: https://invent.kde.org/plasma/drkonqi/-/archive/master/drkonqi-master.tar.bz2#/drkonqi-%{git}.tar.bz2
+Source0: https://invent.kde.org/plasma/drkonqi/-/archive/%{gitbranch}/drkonqi-%{gitbranchd}.tar.bz2#/drkonqi-%{git}.tar.bz2
 %else
 Source0: http://download.kde.org/%{stable}/plasma/%{version}/drkonqi-%{version}.tar.xz
 %endif
@@ -59,7 +61,7 @@ Requires: systemd-coredump
 Crash handler for KDE software
 
 %prep
-%autosetup -p1 -n drkonqi-%{?git:master}%{!?git:%{version}}
+%autosetup -p1 -n drkonqi-%{?git:%{gitbranchd}}%{!?git:%{version}}
 %cmake \
 	-DBUILD_QCH:BOOL=ON \
 	-DBUILD_WITH_QT6:BOOL=ON \
