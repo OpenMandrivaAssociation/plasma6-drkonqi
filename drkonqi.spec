@@ -3,7 +3,7 @@
 %define gitbranch Plasma/6.0
 %define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 
-Name: plasma6-drkonqi
+Name: drkonqi
 Version: 6.3.4
 Release: %{?git:0.%{git}.}2
 %if 0%{?git:1}
@@ -52,30 +52,19 @@ BuildRequires: python%{pyver}dist(pygdbmi)
 BuildRequires: python%{pyver}dist(sentry-sdk)
 BuildRequires: systemd-coredump
 BuildRequires: systemd
+BuildSystem: cmake
+BuildOption: -DBUILD_QCH:BOOL=ON
+BuildOption: -DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
+BuildOption: -DWITH_PYTHON_VENDORING:BOOL=OFF
 Requires: python%{pyver}dist(psutil)
 Requires: python%{pyver}dist(pygdbmi)
 Requires: python%{pyver}dist(sentry-sdk)
 Requires: systemd-coredump
+# Renamed after 6.0 2025-04-27
+%rename plasma6-drkonqi
 
 %description
 Crash handler for KDE software
-
-%prep
-%autosetup -p1 -n drkonqi-%{?git:%{gitbranchd}}%{!?git:%{version}}
-%cmake \
-	-DBUILD_QCH:BOOL=ON \
-	-DBUILD_WITH_QT6:BOOL=ON \
-	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
-	-DWITH_PYTHON_VENDORING:BOOL=OFF \
-	-G Ninja
-
-%build
-%ninja_build -C build
-
-%install
-%ninja_install -C build
-
-%find_lang %{name} --all-name --with-qt --with-html
 
 %files -f %{name}.lang
 %{_datadir}/qlogging-categories6/drkonqi.*
@@ -112,4 +101,3 @@ Crash handler for KDE software
 %{_datadir}/dbus-1/system-services/org.kde.drkonqi.service
 %{_datadir}/dbus-1/system.d/org.kde.drkonqi.conf
 %{_datadir}/polkit-1/actions/org.kde.drkonqi.policy
-
